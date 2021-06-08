@@ -1,0 +1,38 @@
+:root {
+    --nav-width: 226px;
+
+    --column-width: 84px;
+
+    --gutter-width: 24px;
+
+    --pd-lr: 24px;
+
+    --header-height: 48px;
+
+    --color-regular: #454545;
+}
+
+body {
+    font-family: 'GoogleSans-regular', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-regular);
+}
+
+/* Font */
+@font-face {
+    font-family: 'GoogleSans-regular';
+    src: url("../../font/GoogleSans-Regular.otf");
+}
+
+@font-face {
+    font-family: 'GoogleSans-medium';
+    src: url("../../font/GoogleSans-Medium.otf");
+}
+
+@font-face {
+    font-family: 'GoogleSans-light';
+    src: url("../../font/GoogleSans-Light.otf");
+}

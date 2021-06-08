@@ -1,0 +1,132 @@
+.wrapper {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    transition: .2s;
+}
+/* Nav bar */
+.nav-wrapper {
+    background-color: #fff;
+    height: 100%;
+    width: var(--nav-width);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: .2s;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+}
+ /* Nav header */
+ .nav__header {
+     height: var(--header-height);
+     display: flex;
+     align-items: center;
+     width: 226px;
+ }
+
+ .toggle-icon {
+     background: url("../../Images/toggle.png") no-repeat;
+     background-size: 24px 24px;
+     width: 24px;
+     height: 24px;
+     margin: 12px 12px 12px 16px;
+     cursor: pointer;
+ }
+
+ .logo {
+     background: url("../../Images/cukcuk-logo.png") no-repeat;
+     background-size: 142px 38px;
+     width: 174px;
+     height: 38px;
+ }
+ /* Nav list */
+ .nav__list {
+     display: flex;
+     flex-direction: column;
+     width: 226px;
+ }
+
+ .nav__list-item {
+     height: 44px;
+     display: flex;
+     align-items: center;
+     cursor: pointer;
+ }
+
+ .nav__list-item:hover {
+    color: #000;
+    background-color: #e5e5e5;
+ }
+
+ .nav__item-icon {
+     width: 52px;
+     height: 20px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+
+ .item__icon {
+     width: 20px;
+     height: 20px;;
+ }
+
+    /* nav-item icon */
+    .icon-dashboard {
+        background-image: url("../../Icons/dashboard.png");
+        background-size: 20px 20px;
+    }
+
+    .icon-report {
+        background-image: url("../../Icons/report.png");
+        background-size: 20px 20px;
+    }
+
+    .icon-setting {
+        background-image: url("../../Icons/setting.png");
+        background-size: 20px 20px;
+    }
+
+    .icon-dic-employee {
+        background-image: url("../../Icons/dic-employee.png");
+        background-size: 20px 20px;
+    }
+
+/* Main */
+.main {
+    height: 100%;
+    width: calc(100% - var(--nav-width) - 1px);
+    margin-left: calc(var(--nav-width));
+}
+
+ /* Header */
+ .header-page {
+    background-color: #fff;
+    height: var(--header-height);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+ }
+
+ /* Content */
+ .content {
+    background-color: #e9ebee;
+    height: calc(100% - var(--header-height) - 1px);
+ }
+
+
+/* Active */
+.nav__list-item-active {
+    background-color: #019106;
+    color: #fff;
+}
+
+/* Small navbar */ 
+.nav-small {
+    --nav-width: 52px;
+}
