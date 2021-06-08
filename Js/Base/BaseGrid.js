@@ -4,6 +4,8 @@ class BaseGrid {
 
         me.grid = $(`#${gridId}`);
 
+        me.paging = null;
+
         //Lấy dữ liệu server
         me.getDataServer();
 

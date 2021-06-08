@@ -1,5 +1,5 @@
 class EmployeePage extends BaseGrid{
-    constructor (gridId) {
+    constructor (gridId, pagingId) {
         super(gridId);
 
         var departmentDropdown = new Dropdown("departmentDropdown");

@@ -203,12 +203,15 @@ tbody tr:nth-child(odd) {
     border: 1px solid #bbb;
     border-radius: 4px;
     margin-right: 16px;
+    cursor: pointer;
 }
 
 .page-direction {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
+    border-radius: 50%;
 }
 
 .page__num {
@@ -219,22 +222,34 @@ tbody tr:nth-child(odd) {
 .paging-icon {
     width: 20px;
     height: 20px;
-    background-size: 20px;
 }
 
 .first-page__icon {
     background: url("../../Icons/btn-firstpage.svg") no-repeat;
+    background-size: 20px;
 }
 .pre-page__icon {
     background: url("../../Icons/btn-prev-page.svg") no-repeat;
+    background-size: 20px;
 }
 
 .next-page__icon {
     background: url("../../Icons/btn-next-page.svg") no-repeat;
+    background-size: 20px;
 }
 
 .last-page__icon {
     background: url("../../Icons/btn-lastpage.svg") no-repeat;
+    background-size: 20px;
+}
+
+.paging-item-hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.paging-item-click {
+    background-color: #019160;
+    color: white;
 }
 /* text */
 .text-heading, .text-title, .text-title2 {
