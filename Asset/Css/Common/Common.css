@@ -2,7 +2,6 @@
     display: flex;
     height: 100vh;
     width: 100%;
-    transition: .2s;
 }
 /* Nav bar */
 .nav-wrapper {
@@ -13,7 +12,6 @@
     position: fixed;
     top: 0;
     left: 0;
-    transition: .2s;
 }
 
 .nav-bar {
@@ -57,11 +55,6 @@
      display: flex;
      align-items: center;
      cursor: pointer;
- }
-
- .nav__list-item:hover {
-    color: #000;
-    background-color: #e5e5e5;
  }
 
  .nav__item-icon {
@@ -111,22 +104,42 @@
     background-color: #fff;
     height: var(--header-height);
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px 0 24px;
+ }
+ 
+ .header__name {
+     padding-left: 8px;
+ }
+ .name__text {
+     padding-right: 10px;
  }
 
- /* Content */
- .content {
-    background-color: #e9ebee;
-    height: calc(100% - var(--header-height) - 1px);
+ .header__user {
+     display: flex;
+     align-items: center;
+     justify-content: center;
  }
 
+ .username {
+     background: url("../../Icons/avatar-default.png") no-repeat;
+     background-size: 20px 20px;
+     padding-right: 16px;
+     
+ }
 
-/* Active */
-.nav__list-item-active {
-    background-color: #019106;
-    color: #fff;
-}
+ .username span {
+    padding-left: 36px;
+ }
+
+ .user__menu {
+     cursor: pointer;
+ }
 
 /* Small navbar */ 
 .nav-small {
     --nav-width: 52px;
+    --column-width: 84px;
 }

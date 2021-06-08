@@ -26,37 +26,37 @@
                     </div>
                 </div>
                 <div class="nav__list">
-                    <div class="nav__list-item">
+                    <div class="nav__list-item text-lbl">
                         <div class="nav__item-icon">
                             <div class="item__icon icon-dashboard"></div>
                         </div>
                         <span class="nav__item-name">Tổng quan</span>
                     </div>
-                    <div class="nav__list-item">
+                    <div class="nav__list-item text-lbl">
                         <div class="nav__item-icon">
                             <div class="item__icon icon-report"></div>
                         </div>
                         <span class="nav__item-name">Báo cáo</span>
                     </div>
-                    <div class="nav__list-item">
+                    <div class="nav__list-item text-lbl">
                         <div class="nav__item-icon">
                             <div class="item__icon icon-dashboard"></div>
                         </div>
                         <span class="nav__item-name">Mua hàng</span>
                     </div>
-                    <div class="nav__list-item">
+                    <div class="nav__list-item text-lbl">
                         <div class="nav__item-icon">
                             <div class="item__icon icon-dic-employee"></div>
                         </div>
                         <span class="nav__item-name">Danh mục nhân viên</span>
                     </div>
-                    <div class="nav__list-item">
+                    <div class="nav__list-item text-lbl">
                         <div class="nav__item-icon">
                             <div class="item__icon icon-dic-employee"></div>
                         </div>
                         <span class="nav__item-name">Danh mục nhân viên</span>
                     </div>
-                    <div class="nav__list-item">
+                    <div class="nav__list-item text-lbl">
                         <div class="nav__item-icon">
                             <div class="item__icon icon-setting"></div>
                         </div>
@@ -66,8 +66,113 @@
             </nav>
         </div>
         <div class="main">
-            <header class="header-page" id="header-page"></header>
-            <div class="content"></div>
+            <header class="header-page" id="header-page">
+                <div class="header__name">
+                    <span class="name__text text-title2">Nhà hàng Biển Đông</span>
+                    <i class="fas fa-chevron-down fa-xs"></i>
+                </div>
+                <div class="header__user">
+                    <div class="username">
+                        <span>Nguyễn Văn Toàn</span>
+                    </div>
+                    <div class="user__menu">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <div class="content__header">
+                    <div class="content__name text-title">
+                        <span>Danh Sách nhân viên</span>
+                    </div>
+                    <div class="btn btn-primary btn-icon btn__add">
+                        <div class="btn__icon"></div>
+                        <span class="btn__name">Thêm nhân viên</span>
+                    </div>
+                </div>
+                <div class="content__util">
+                    <div class="util__left">
+                        <div class="field-input search-box">
+                            <div class="field-input__icon search-box__icon"></div>
+                            <input type="text" class="field-input__input search-box__input" placeholder="Tìm theo Mã, Tên hoặc Số điện thoại">
+                        </div>
+                        <div class="dropdown" id="departmentDropdown">
+                            <div class="dropdown__btn">
+                                <div class="dropdown__btn-left">
+                                    <div class="dropdown__content">
+                                        <span class="dropdown__text">Tất cả phòng ban</span>
+                                    </div>
+                                    <div class="dropdown__icon-unselect">
+                                        <i class="fas fa-times fa-xs"></i>
+                                    </div>
+                                </div>
+                                <div class="dropdown__icon-arrow">
+                                    <i class="fas fa-chevron-down fa-xs"></i>
+                                </div>
+                            </div>
+                            <div class="dropdown__list">
+                                <div class="dropdown__list-item">
+                                    <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                    <span class="dropdown__item-name">Trạng thái 1</span>
+                                </div>
+                                <div class="dropdown__list-item">
+                                    <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                    <span class="dropdown__item-name">Trạng thái 2</span>
+                                </div>
+                                <div class="dropdown__list-item">
+                                    <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                    <span class="dropdown__item-name">Trạng thái 3</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown" id="positionDropdown">
+                            <div class="dropdown__btn">
+                                <div class="dropdown__btn-left">
+                                    <div class="dropdown__content">
+                                        <span class="dropdown__text">Tất cả vị trí</span>
+                                    </div>
+                                    <div class="dropdown__icon-unselect">
+                                        <i class="fas fa-times fa-xs"></i>
+                                    </div>
+                                </div>
+                                <div class="dropdown__icon-arrow">
+                                    <i class="fas fa-chevron-down fa-xs"></i>
+                                </div>
+                            </div>
+                            <div class="dropdown__list">
+                                <div class="dropdown__list-item">
+                                    <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                    <span class="dropdown__item-name">Giám đốc</span>
+                                </div>
+                                <div class="dropdown__list-item">
+                                    <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                    <span class="dropdown__item-name">Nhân viên</span>
+                                </div>
+                                <div class="dropdown__list-item">
+                                    <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                    <span class="dropdown__item-name">Thư ký</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="util__right btn">
+                        <div class="btn-refresh"></div>
+                    </div>
+                </div>
+                <div class="grid" id="EmployeeGrid" Url="v1/employees">
+                    <div class="d-none">
+                        <div class="grid__col" FieldName="EmployeeCode">Mã nhân viên</div>
+                        <div class="grid__col" FieldName="FullName">Họ và tên</div>
+                        <div class="grid__col" FieldName="Gender" DataType="Enum" EnumName="Gender">Giới tính</div>
+                        <div class="grid__col" FieldName="DateOfBirth" DataType="Date">Ngày sinh</div>
+                        <div class="grid__col" FieldName="PhoneNumber">Điện thoại</div>
+                        <div class="grid__col" FieldName="Email">Email</div>
+                        <div class="grid__col" FieldName="PositionName">Chức vụ</div>
+                        <div class="grid__col" FieldName="DepartmentName">Phòng ban</div>
+                        <div class="grid__col" FieldName="Salary" DataType="Number">Mức lương</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -77,7 +182,14 @@
         <!-- JQuery -->
         <script src="../Js/Lib/jquery-3.6.0.js"></script>
     <!-- Chung -->
+    <script src="../Js/Common/CommonEvt.js"></script>
     <script src="../Js/Common/Nav.js"></script>
+    <script src="../Js/Common/Dropdown.js"></script>
+    <script src="../Js/Common/Constant.js"></script>
+    <script src="../Js/Common/Enumeration.js"></script>
+    <script src="../Js/Common/Resource.js"></script>
+    <script src="../Js/Common/CommonFn.js"></script>
+    <script src="../Js/Base/BaseGrid.js"></script>
     <!-- Riêng -->
     <script src="../Js/Views/Employee.js"></script>
 </body>

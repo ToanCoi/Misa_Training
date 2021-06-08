@@ -20,6 +20,9 @@ class Nav {
         //Click toggle btton
         me.clickToggleEvent();
 
+        //Hover vào menu
+        me.hoverNavItemEvent();
+
         // Click Vào một menu
         me.clickNavItemEvent();
     }
@@ -37,17 +40,23 @@ class Nav {
     }
 
     /**
+     * Hàm xử lý khi hover vào một menu
+     * NVTOAN 06/06/2021
+     */
+     hoverNavItemEvent() {
+         let me = this;
+
+        CommonEvt.hover(me.nav, "nav__list-item", "nav__item-hover", "nav__item-selected");
+     }
+
+    /**
      * Hàm xử lý sự kiện click vào một menu item 
      * NVTOAN 06/06/2021
      */
     clickNavItemEvent() {
         let me = this;
         
-        me.nav.find(".nav__list-item").on("click", function() {
-            me.nav.find(".nav__list-item").removeClass("nav__list-item-active");
-
-            $(this).addClass("nav__list-item-active");
-        });
+        CommonEvt.click(me.nav, "nav__list-item","nav__item-hover", "nav__item-selected", 1, null);
     }
 }
 

@@ -1,0 +1,78 @@
+
+/* Scroll bar */
+::-webkit-scrollbar{
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #cdd3d6;
+    border-radius: 10px;
+}
+
+/* Content */
+ .content {
+    height: calc(100% - var(--header-height) - 1px);
+    padding: 0px 16px;
+ }
+
+    /* Header content */
+    .content__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 16px;
+    }
+
+    .btn__icon {
+        background: url("../../Icons/add.png") no-repeat;
+        background-size: 16px 16px;
+        width: 16px;
+        height: 16px;
+        padding-right: 8px;
+    }
+
+    /* Content Utility */
+    .content__util {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 8px;
+    }
+
+    .util__left {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-box__icon {
+        background: url("../../Icons/search.png");
+    }
+
+    .dropdown {
+        margin-left: 24px;
+    }
+
+    .util__right {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        padding: 0 16px;
+        border: 1px solid #bbb;
+    }
+
+    .btn-refresh {
+        background: url("../../Icons/refresh.png") no-repeat;
+        background-size: 20px 20px;
+        width: 20px;
+        height: 20px;
+    }
+
+    /* grid */
+    .grid {
+        margin-top: 16px;
+        width: 100%;
+        height: calc(100% - 56px - 50px);
+        overflow: scroll;
+    }
+
+    
