@@ -22,3 +22,9 @@ Resource.Gender = {
     Other: "Khác"
 }
 
+Resource.WorkStatus = {
+    Active: "Đang làm việc",
+    Intern: "Đang thử việc",
+    Retired: "Đã nghỉ việc"
+}
+

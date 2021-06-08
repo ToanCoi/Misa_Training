@@ -71,8 +71,11 @@
     .grid {
         margin-top: 16px;
         width: 100%;
-        height: calc(100% - 56px - 50px);
+        height: calc(100% - 56px - 50px - 56px);
         overflow: scroll;
     }
+
+    /* paging */
+
 
     

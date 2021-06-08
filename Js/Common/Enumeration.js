@@ -6,3 +6,10 @@ Enumeration.Gender = {
     Male: 1,
     Other: 2
 }
+
+//Trạng thái làm việc
+Enumeration.WorkStatus = {
+    Active: 0,
+    Intern: 1,
+    Retired: 2
+}

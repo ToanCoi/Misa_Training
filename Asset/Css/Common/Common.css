@@ -1,6 +1,6 @@
 .wrapper {
     display: flex;
-    height: 100vh;
+    height: calc(100vh - 16px);
     width: 100%;
 }
 /* Nav bar */

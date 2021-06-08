@@ -173,9 +173,8 @@ table {
 }
 
 thead th {
-}
-
-tbody {
+    text-align: left;
+    padding: 0 8px 0 10px;
 }
 
 tr {
@@ -183,10 +182,60 @@ tr {
     border-bottom: 2px solid rgba(0, 0, 0, 0.05);
 }
 
+tr td {
+    padding: 0 10px 0 16px;
+}
+
 tbody tr:nth-child(odd) {
     background-color: rgba(0, 0, 0, 0.03);
 }
 
+.paging, .paging__left, .paging__center, .paging__right, .page__num  {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.paging-item{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    margin-right: 16px;
+}
+
+.page-direction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page__num {
+    border-radius: 50%;
+    justify-content: center; 
+}
+
+.paging-icon {
+    width: 20px;
+    height: 20px;
+    background-size: 20px;
+}
+
+.first-page__icon {
+    background: url("../../Icons/btn-firstpage.svg") no-repeat;
+}
+.pre-page__icon {
+    background: url("../../Icons/btn-prev-page.svg") no-repeat;
+}
+
+.next-page__icon {
+    background: url("../../Icons/btn-next-page.svg") no-repeat;
+}
+
+.last-page__icon {
+    background: url("../../Icons/btn-lastpage.svg") no-repeat;
+}
 /* text */
 .text-heading, .text-title, .text-title2 {
     font-family: 'GoogleSans-bold';

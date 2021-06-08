@@ -38,7 +38,7 @@ class BaseGrid {
      * NVTOAN 07/06/2021
      * @param {*} data 
      */
-    loadData(data) {debugger
+    loadData(data) {
         let me = this,
             table = $("<table></table>"),
             thead = me.renderHeader(),
@@ -55,7 +55,7 @@ class BaseGrid {
      * Hàm render header của grid
      * NVTOAN 07/06/2021
      */
-    renderHeader() {debugger
+    renderHeader() {
         let me = this,
             thead = $("<thead></thead>"),
             tr = $("<tr></tr>");
@@ -78,7 +78,7 @@ class BaseGrid {
      * Hàm render body của grid
      * NVTOAN 06/07/2021
      */
-    renderBody(data) {debugger
+    renderBody(data) {
         let me = this,
             tbody = $("<tbody></tbody>");
         
@@ -86,7 +86,7 @@ class BaseGrid {
             data.filter(function (item) {
                 let row  = $("<tr></tr>");
 
-                me.grid.find(".grid__col").each(function() {debugger
+                me.grid.find(".grid__col").each(function() {
                     let column = $(this),
                         fieldName = column.attr("FieldName"),
                         originValue = item[fieldName],
@@ -112,7 +112,7 @@ class BaseGrid {
      * Hàm lấy class vị trí tương ứng với loại dữ liệu
      * NVTOAN 07/06/2021
      */
-    getClassFormat(dataType) {debugger
+    getClassFormat(dataType) {
         let me = this,
             className = "";
 
@@ -132,7 +132,7 @@ class BaseGrid {
      * Hàm chuyển dữ liệu thô sang dữ liệu hiển thị
      * NVTOAN 07/06/2021
      */
-    getDisplayValue(data, dataType, column) {debugger
+    getDisplayValue(data, dataType, column) {
         let me = this;
 
         switch(dataType) {
