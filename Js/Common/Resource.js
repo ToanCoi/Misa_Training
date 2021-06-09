@@ -22,9 +22,17 @@ Resource.Gender = {
     Other: "Khác"
 }
 
+//Trạng thái làm việc
 Resource.WorkStatus = {
     Active: "Đang làm việc",
     Intern: "Đang thử việc",
     Retired: "Đã nghỉ việc"
 }
 
+//Các chế độ của form
+Resource.FormType = {
+    Add: "Add",
+    Edit: "Edit",
+    Delete: "Delete",
+    Refresh: "Refresh"
+}

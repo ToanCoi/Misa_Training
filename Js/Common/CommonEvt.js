@@ -8,12 +8,14 @@ var CommonEvt = CommonEvt || {};
  * @param {*} hoverClassName 
  * @param {*} selectClassName 
  */
-CommonEvt.hover = (parent, elementClass, hoverClassName, selectClassName) => {
-    parent.find(`.${elementClass}`).hover(function () {
+CommonEvt.hover = (parent, selector, hoverClassName, selectClassName) => {
+    parent.on("mouseenter", `${selector}`, function () {
         if(!$(this).hasClass(`${selectClassName}`)) {
             $(this).addClass(`${hoverClassName}`);
         }
-    }, function() {
+    });
+
+    parent.on("mouseleave",`${selector}`, function() {
         $(this).removeClass(`${hoverClassName}`);
     });
 }
@@ -22,11 +24,11 @@ CommonEvt.hover = (parent, elementClass, hoverClassName, selectClassName) => {
  * Hàm xử lý sự kiện click vào một phần tử
  * NVTOAN 06/06/2021
  */
-CommonEvt.click = (parent, elementClass, hoverClassName, selectClassName, multiple, callbackFn) => {
+CommonEvt.click = (parent, selector, hoverClassName, selectClassName, multiple, callbackFn) => {
     
-    parent.find(`.${elementClass}`).on("click", function () {
+    parent.on("click", `${selector}`, function () {
         if(multiple == 1) {
-            parent.find(`.${elementClass}`).removeClass(`${selectClassName} ${hoverClassName}`);
+            parent.find(`${selector}`).removeClass(`${selectClassName} ${hoverClassName}`);
 
             $(this).addClass(`${selectClassName}`);
             result = $(this);

@@ -4,7 +4,11 @@ class BaseGrid {
 
         me.grid = $(`#${gridId}`);
 
+        //paging của grid
         me.paging = null;
+
+        //Form của grid
+        me.form = null;
 
         //Lấy dữ liệu server
         me.getDataServer();
@@ -14,7 +18,89 @@ class BaseGrid {
     }
 
     initEvents() {
+        let me = this;
+
+        me.rowHoverEvent();
+
+        me.rowClickEvent();
+
+        //Khởi tạo paging cho grid
+        me.initPaging();
+
+        //Xứ lý sự kiện tool bar của grid
+        me.initToolbar();
+    }
+
+    /**
+     * Khởi tạo form tương ứng cho grid
+     * NVTOAN 10/06/20201
+     */
+    initToolbar() {debugger
+        let me = this,
+            toolbarAttr = me.grid.attr("Toolbar"),
+            listToolbar = $(`[${toolbarAttr}]`);
+
+        if(listToolbar.length > 0) {
+            listToolbar.on("click", function() {debugger
+                let fireEvent = null;
+
+                switch($(this).attr("FormType")) {
+                    case Resource.FormType.Add:
+                        fireEvent = me.add;
+                        break;
+                    case Resource.FormType.Edit:
+                        fireEvent = me.edit;
+                        break;
+                    case Resource.FormType.Delete:
+                        fireEvent = me.delete;
+                        break;
+                    case Resource.FormType.Refresh:
+                        fireEvent.me.refresh;
+                }
+
+                if(typeof(fireEvent) == 'function') {
+                    fireEvent = fireEvent.bind(me);
+
+                    fireEvent();
+                }
+            });
+        }
+    }
+
+    /**
+     * Hàm mở form thêm mới bản ghi vào grid
+     * NVTOAN 10/06/2021
+     */
+    add() {
+        let me = this;
+
         
+    }
+
+    /**
+     * Khởi tạo paging cho grid
+     * NVTOAN 10/06/2021
+     */
+    initPaging() {
+        let me = this,
+            pagingId = me.grid.attr("Paging");
+        
+        me.paging = new BasePaging(`${pagingId}`);
+    }
+
+    rowHoverEvent() {
+        let me = this;
+
+        CommonEvt.hover(me.grid, "tbody tr", "tr-hover", "tr-selected");
+        
+    }
+
+    rowClickEvent() {
+        let me = this;
+
+        CommonEvt.click(me.grid, "tbody tr", "tr-hover", "tr-selected", 1, function() {
+            console.log("select row");
+        });
     }
 
     /**

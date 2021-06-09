@@ -23,7 +23,7 @@
         padding-top: 16px;
     }
 
-    .btn__icon {
+    .btn__add-icon {
         background: url("../../Icons/add.png") no-repeat;
         background-size: 16px 16px;
         width: 16px;
@@ -77,5 +77,27 @@
 
     /* paging */
 
+    /* form */
+    .btn__icon-save {
+        width: 16px;
+        height: 16px;
+        padding-right: 8px;
+    }
+
+    .form__avatar {
+        background: url("../../Images/default-avatar.jpg") no-repeat;
+        background-size: calc(var(--column-width) * 2);
+        width: calc(var(--column-width) * 2);
+        height: calc(var(--column-width) * 2);
+        border-radius: 50%;
+        border: 1px solid #bbb;
+        cursor: pointer;
+    }
+
+    .form__avater-des {
+        width: calc(var(--column-width) * 2);
+        height: calc(var(--column-width) * 2);
+        text-align: center;
+    }
 
     

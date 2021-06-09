@@ -2,7 +2,7 @@ class BasePaging {
     constructor(pagingId) {
         let me = this;
 
-        me.paging = $(this).find(`${pagingId}`);
+        me.paging = $(`#${pagingId}`);
 
         //Sự kiện trên paging
         me.initEvents();
@@ -29,6 +29,8 @@ class BasePaging {
     }
 
     pagingItemClick() {
-        CommonEvt.click(me.paging, ".paging-item", "paging-item-hover", "paging-item-select", 1, null);
+        let me = this;
+
+        CommonEvt.click(me.paging, ".page__num", "paging-item-hover", "paging-item-select", 1, null);
     }
 }

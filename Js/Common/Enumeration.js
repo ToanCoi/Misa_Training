@@ -13,3 +13,10 @@ Enumeration.WorkStatus = {
     Intern: 1,
     Retired: 2
 }
+
+//Các chế độ của form
+Enumeration.FormMode = {
+    Add: 1, 
+    Edit: 2,
+    Delete: 3
+}

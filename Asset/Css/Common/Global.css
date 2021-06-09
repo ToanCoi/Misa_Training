@@ -49,16 +49,28 @@ a {
     color: white;
 }
 
-.btn-primary-hover {
+.btn-primary:hover {
     background-color: #2fbe8e;
 }
 
-.btn-primary-selected {
+.btn-primary:active {
+    background-color: #01b075;
+}
+
+.btn-default {
+    background-color: #f4f4f4;
+}
+
+.btn-default:hover {
+    background-color: #E9EBEE;
+}
+
+.btn-default:active {
     background-color: #01b075;
 }
 
 .btn-icon {
-    padding: 0px 16px
+    padding: 0px 16px;
 }
 
 /* field input */
@@ -95,7 +107,6 @@ a {
     color: #000;
     font-size: 13px;
     font-family: 'GoogleSans-regular';
-    padding-left: 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -112,6 +123,7 @@ a {
     align-items: center;
     justify-content: space-between;
     width: calc(100% - 20px);
+    margin-left: 16px;
 }
 
 .dropdown__icon-unselect {
@@ -139,7 +151,7 @@ a {
 
 .dropdown__list {
     position: absolute;
-    width: calc(var(--column-width) * 2.5 + 16px);
+    width: calc(var(--column-width) * 2.5);
     font-size: 13px;
     font-family: 'GoogleSans-regular';
     background-color: #fff;
@@ -147,6 +159,7 @@ a {
     border-radius: 4px;
     padding: 3px 0px;
     display: none;
+    z-index: 100;
 }
 
 .dropdown__list-item {
@@ -186,10 +199,23 @@ tr td {
     padding: 0 10px 0 16px;
 }
 
-tbody tr:nth-child(odd) {
-    background-color: rgba(0, 0, 0, 0.03);
+tbody tr {
+    cursor: pointer;
 }
 
+tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+.tr-selected {
+    background-color: #e3f3ee !important;
+}
+
+.tr-hover {
+    background-color: #e9ebee !important;
+}
+
+/* paging */
 .paging, .paging__left, .paging__center, .paging__right, .page__num  {
     height: 56px;
     display: flex;
@@ -247,9 +273,108 @@ tbody tr:nth-child(odd) {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.paging-item-click {
+.paging-item-select {
     background-color: #019160;
     color: white;
+}
+
+/* form */
+.form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    display: none;
+}
+
+form {
+    background-color: #fff;
+}
+
+.form__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 16px;
+}
+
+.form__title-text {
+    margin-top: 16px;
+}
+
+.form__cancel-icon {
+    background: url("../../Icons/x.svg");
+    width: 20px;
+    height: 20px;
+    background-size: 20px;
+    opacity: 0.7;
+    margin-right: 8px;
+}
+
+.form__content {
+    margin: 16px 0px 0px 16px;
+}
+
+.form__group {
+    margin-left: 16px;
+}
+
+.form__group-title::after {
+    content: "";
+    width: calc(var(--column-width) * 1.5);
+    background-color: #019160;
+    height: 3px;
+    display: block;
+    margin: 4px 0;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.form-item input, .form-item>.dropdown {
+    width: calc(var(--column-width) * 3);
+    height: 30px;
+    font-size: 13px;
+    margin-right: 16px;
+}   
+
+.form-item input:focus {
+    border: 1px solid #019160;
+    outline: none;
+}
+
+.form-item>.dropdown {
+    margin-left: 0px;
+}
+
+.form-item .dropdown__list {
+    /* width: calc(var(--column-width) * 3); */
+}
+
+.form-item .dropdown .dropdown__btn {
+    width: 100%;
+    height: 100%;
+}
+
+.form__footer {
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 16px;
+    height: 60px;
+}
+
+.form__btn {
+    margin-left: 16px;
 }
 /* text */
 .text-heading, .text-title, .text-title2 {
@@ -269,13 +394,13 @@ tbody tr:nth-child(odd) {
     font-size: 15px;
 }
 
-.text-lbl-input {
+.text-label-input {
     font-family: 'GoogleSans-medium';
     font-size: 13px;
     color: #000;
 }
 
-.text-lbl {
+.text-label {
     font-family: 'GoogleSans-regular';
     font-size: 13px;
     color: #454545;
@@ -293,6 +418,10 @@ tbody tr:nth-child(odd) {
 
 .text-center {
     text-align: center;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
 }
 
 /* font */

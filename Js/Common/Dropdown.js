@@ -59,7 +59,7 @@ class Dropdown {
     dropdownItemHover() {
         let me = this;
 
-        CommonEvt.hover(me.dropdownListItem, "dropdown__list-item", "dropdown__item-hover", "dropdown__item-selected");
+        CommonEvt.hover(me.dropdownListItem, ".dropdown__list-item", "dropdown__item-hover", "dropdown__item-selected");
 
     }
 
@@ -71,7 +71,7 @@ class Dropdown {
         let me = this,
             itemClicked = null;
         
-        CommonEvt.click(me.dropdownListItem, "dropdown__list-item", "dropdown__item-hover", "dropdown__item-selected", 1, function(element) {
+        CommonEvt.click(me.dropdownListItem, ".dropdown__list-item", "dropdown__item-hover", "dropdown__item-selected", 1, function(element) {
             me.dropdownListItem.find(".dropdown__item-icon").removeClass("opacity-1");
 
             element.find(".dropdown__item-icon").addClass("opacity-1");

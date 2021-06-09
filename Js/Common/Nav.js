@@ -46,7 +46,7 @@ class Nav {
      hoverNavItemEvent() {
          let me = this;
 
-        CommonEvt.hover(me.nav, "nav__list-item", "nav__item-hover", "nav__item-selected");
+        CommonEvt.hover(me.nav, ".nav__list-item", "nav__item-hover", "nav__item-selected");
      }
 
     /**
@@ -56,7 +56,7 @@ class Nav {
     clickNavItemEvent() {
         let me = this;
         
-        CommonEvt.click(me.nav, "nav__list-item","nav__item-hover", "nav__item-selected", 1, null);
+        CommonEvt.click(me.nav, ".nav__list-item","nav__item-hover", "nav__item-selected", 1, null);
     }
 }
 
