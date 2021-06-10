@@ -65,7 +65,11 @@ CommonFn.Ajax = (url, method, data, async = true, fnCallback) => {
         crossDomain: true,
         contentType: "application/json;charset=utf-8",
         dataType: "json",
+        beforeSend: function() {
+            $(".loader").addClass("d-flex");
+        },
         success: function(respone) {
+            $(".loader").removeClass("d-flex");
             fnCallback(respone);
         },
         error: function (errormessage) {

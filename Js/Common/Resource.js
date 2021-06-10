@@ -36,3 +36,9 @@ Resource.FormType = {
     Delete: "Delete",
     Refresh: "Refresh"
 }
+
+//Sự button của form
+Resource.FormBtn = {
+    Save: "Save",
+    Cancel: "Cancel"
+}

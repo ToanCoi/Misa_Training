@@ -2,9 +2,11 @@ class EmployeePage extends BaseGrid{
     constructor (gridId) {
         super(gridId);
 
-        var departmentDropdown = new Dropdown("departmentDropdown");
+        let me = this;
+
+        me.departmentDropdown = new Dropdown("departmentDropdown");
         
-        var positionDropdown = new Dropdown("positionDropdown");
+        me.positionDropdown = new Dropdown("positionDropdown");
 
         var inputGenderDropdown = new Dropdown("inputGender");
 
@@ -14,7 +16,15 @@ class EmployeePage extends BaseGrid{
 
         var inputWorkStatusDropdown = new Dropdown("inputWorkStatus");
     }
+
+    initForm(formId) {debugger
+        let me = this;
+
+        me.form = new EmployeeFormDetail(formId);
+    }
 }
 
 var employeePage = new EmployeePage("EmployeeGrid");
+
+employeePage.initForm("EmployeeForm");
 

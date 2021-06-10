@@ -34,6 +34,33 @@ a {
     color: var(--color-regular);
 }
 
+/* loader */
+.loader {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.loader__icon {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #000; /* Blue */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+/* button */
 .btn {
     border-radius: 4px;
     height: 40px;
@@ -279,20 +306,26 @@ tbody tr:nth-child(odd) {
 }
 
 /* form */
-.form {
+.overlay {
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: auto;
-    display: none;
+    display: block;
+    z-index: 2;
 }
 
-form {
+.form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
     background-color: #fff;
+    width: fit-content;
+    height: fit-content;
+    z-index: 3;
 }
 
 .form__title {
@@ -306,13 +339,20 @@ form {
     margin-top: 16px;
 }
 
+.form__title-cancel {
+    padding-right: 8px;
+}
+
+.form__title-cancel:hover .form__cancel-icon{
+    opacity: 1;
+}
+
 .form__cancel-icon {
     background: url("../../Icons/x.svg");
     width: 20px;
     height: 20px;
     background-size: 20px;
-    opacity: 0.7;
-    margin-right: 8px;
+    opacity: 0.6;
 }
 
 .form__content {
@@ -336,14 +376,15 @@ form {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 }
 
 .form-item input, .form-item>.dropdown {
-    width: calc(var(--column-width) * 3);
-    height: 30px;
+    width: calc(var(--column-width) * 3.5);
+    height: 40px;
     font-size: 13px;
-    margin-right: 16px;
+    margin-right: 24px;
+
 }   
 
 .form-item input:focus {
@@ -353,10 +394,11 @@ form {
 
 .form-item>.dropdown {
     margin-left: 0px;
+    padding-left: 0;
 }
 
 .form-item .dropdown__list {
-    /* width: calc(var(--column-width) * 3); */
+    width: calc(var(--column-width) * 3.5);
 }
 
 .form-item .dropdown .dropdown__btn {

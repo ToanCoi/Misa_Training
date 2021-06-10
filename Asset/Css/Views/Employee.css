@@ -86,17 +86,17 @@
 
     .form__avatar {
         background: url("../../Images/default-avatar.jpg") no-repeat;
-        background-size: calc(var(--column-width) * 2);
-        width: calc(var(--column-width) * 2);
-        height: calc(var(--column-width) * 2);
+        background-size: calc(var(--column-width) * 2.5);
+        width: calc(var(--column-width) * 2.5);
+        height: calc(var(--column-width) * 2.5);
         border-radius: 50%;
         border: 1px solid #bbb;
         cursor: pointer;
     }
 
     .form__avater-des {
-        width: calc(var(--column-width) * 2);
-        height: calc(var(--column-width) * 2);
+        width: calc(var(--column-width) * 2.5);
+        height: calc(var(--column-width) * 2.5);
         text-align: center;
     }
 

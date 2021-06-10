@@ -10,6 +10,8 @@ class BaseGrid {
         //Form của grid
         me.form = null;
 
+        me.cacheData = null;
+
         //Lấy dữ liệu server
         me.getDataServer();
 
@@ -35,13 +37,13 @@ class BaseGrid {
      * Khởi tạo form tương ứng cho grid
      * NVTOAN 10/06/20201
      */
-    initToolbar() {debugger
+    initToolbar() {
         let me = this,
             toolbarAttr = me.grid.attr("Toolbar"),
             listToolbar = $(`[${toolbarAttr}]`);
 
         if(listToolbar.length > 0) {
-            listToolbar.on("click", function() {debugger
+            listToolbar.on("click", function() {
                 let fireEvent = null;
 
                 switch($(this).attr("FormType")) {
@@ -55,7 +57,7 @@ class BaseGrid {
                         fireEvent = me.delete;
                         break;
                     case Resource.FormType.Refresh:
-                        fireEvent.me.refresh;
+                        fireEvent = me.refresh;
                 }
 
                 if(typeof(fireEvent) == 'function') {
@@ -72,10 +74,63 @@ class BaseGrid {
      * NVTOAN 10/06/2021
      */
     add() {
-        let me = this;
+        let me = this,
+            param = {
+                Parent: me,
+                FormMode: Enumeration.FormMode.Add,
+                Record: {},
+                AllRecord: me.cacheData
+            }
+            
+        if(me.form) {
+            me.form.open(param);
+        }
+    }
 
+    /**
+     * Hàm mở form sửa bản ghi vào grid
+     * NVTOAN 10/06/2021
+     */
+    edit() {
+        let me = this,
+            param = {
+                Parent: me,
+                FormMode: Enumeration.FormMode.Add,
+                Record: {},
+                AllRecord: me.cacheData
+            }
+            
+        if(me.form) {
+            me.form.open(param);
+        }
+    }
+
+    /**
+     * Hàm mở form xóa bản ghi vào grid
+     * NVTOAN 10/06/2021
+     */
+    delete() {
+        let me = this,
+            param = {
+                Parent: me,
+                FormMode: Enumeration.FormMode.Add,
+                Record: {},
+                AllRecord: me.cacheData
+            }
+            
         
     }
+
+    /**
+     * Hàm mở form xóa bản ghi vào grid
+     * NVTOAN 10/06/2021
+     */
+    refresh() {
+        let me = this;
+
+        me.getDataServer();
+    }
+
 
     /**
      * Khởi tạo paging cho grid
@@ -114,6 +169,7 @@ class BaseGrid {
         
         CommonFn.Ajax(urlFull, Resource.Method.Get, {}, true, function(respone) {
             if(respone) {
+                me.cacheData = respone;
                 me.loadData(respone);
             } else {
                 console.log("Lỗi lấy dl")

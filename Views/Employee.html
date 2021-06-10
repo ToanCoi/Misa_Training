@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="nav__list">
-                    <div class="nav__list-item text-label">
+                    <div class="nav__list-item text-label nav__item-selected">
                         <div class="nav__item-icon">
                             <div class="item__icon icon-dashboard"></div>
                         </div>
@@ -155,11 +155,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="util__right btn">
-                        <div class="btn-refresh" EmployeeToolbar="true" FormType="Refresh"></div>
+                    <div class="util__right btn btn-default">
+                        <div class="btn-refresh" EmployeeToolbarItem="true" FormType="Refresh"></div>
                     </div>
                 </div>
-                <div class="grid" id="EmployeeGrid" Url="v1/employees" Paging="EmployeePaging" Toolbar="EmployeeToolbarItem">
+                <div class="grid" id="EmployeeGrid" Url="v1/employees" Paging="EmployeePaging" Toolbar="EmployeeToolbarItem" Form="EmployeeForm">
                     <div class="d-none">
                         <div class="grid__col" FieldName="EmployeeCode">Mã nhân viên</div>
                         <div class="grid__col" FieldName="FullName">Họ và tên</div>
@@ -184,7 +184,7 @@
                         <div class="paging-item page-direction">
                             <div class="paging-icon pre-page__icon"></div>
                         </div>
-                        <div class=" paging-item page__num">
+                        <div class=" paging-item page__num paging-item-select">
                             <span>1</span>
                         </div>
                         <div class="paging-item page__num">
@@ -209,209 +209,207 @@
                 </div>
             </div>
         </div>
-        <div class="form">
-            <form>
-                <div class="form__title">
-                    <span class="form__title-text text-title text-uppercase">Thông tin nhân viên</span>
-                    <div class="form__title-cancel">
-                        <div class="form__cancel-icon"></div>
-                    </div>
+        <form class="form d-none" id="EmployeeForm">
+            <div class="form__title">
+                <span class="form__title-text text-title text-uppercase">Thông tin nhân viên</span>
+                <div class="btn form__title-cancel" FormBtn="Cancel">
+                    <div class="form__cancel-icon"></div>
                 </div>
-                <div class="form__content d-flex">
-                    <div class="form__component">
-                        <div class="form__avatar"></div>
-                        <div class="form__avater-des text-label">(Vui lòng chọn ảnh có định dạng .jpg .jpeg .png .gìf)</div>
-                    </div>
-                    <div class="form__component">
-                        <div class="form__group">
-                            <span class="form__group-title text-uppercase">A. Thông tin chung</span>
-                            <div class="form-row">
-                                <div class="form-item">
-                                    <label for="inputEmployeeCode" class="text-label">Mã nhân viên (<span style="color: red;">*</span>)</label>
-                                    <input type="text" class="field-input" placeholder="" id="inputEmployeeCode">
-                                </div>
-                                <div class="form-item">
-                                    <label for="inputFullName" class="text-label">Họ và tên (<span style="color: red;">*</span>)</label>
-                                    <input type="text" class="field-input" placeholder="" id="inputFullName">
-                                </div>
+            </div>
+            <div class="form__content d-flex">
+                <div class="form__component">
+                    <div class="form__avatar"></div>
+                    <div class="form__avater-des text-label">(Vui lòng chọn ảnh có định dạng .jpg .jpeg .png .gìf)</div>
+                </div>
+                <div class="form__component">
+                    <div class="form__group">
+                        <span class="form__group-title text-uppercase">A. Thông tin chung</span>
+                        <div class="form-row">
+                            <div class="form-item">
+                                <label for="inputEmployeeCode" class="text-label">Mã nhân viên (<span style="color: red;">*</span>)</label>
+                                <input type="text" class="field-input" placeholder="" id="inputEmployeeCode" FieldName="EmployeeCode" Required="true">
                             </div>
-                            <div class="form-row">
-                                <div class="form-item">
-                                    <label for="inputDateOfBirth" class="text-label">Ngày sinh</label>
-                                    <input type="date" class="field-input" placeholder="" id="inputDateOfBirth">
-                                </div>
-                                <div class="form-item">
-                                    <label for="inputGeneder" class="text-label">Giới tính</label>
-                                    <div class="dropdown" id="inputGender">
-                                        <div class="dropdown__btn">
-                                            <div class="dropdown__btn-left">
-                                                <div class="dropdown__content">
-                                                    <span class="dropdown__text"></span>
-                                                </div>
-                                                <div class="dropdown__icon-unselect">
-                                                    <i class="fas fa-times fa-xs"></i>
-                                                </div>
+                            <div class="form-item">
+                                <label for="inputFullName" class="text-label">Họ và tên (<span style="color: red;">*</span>)</label>
+                                <input type="text" class="field-input" placeholder="" id="inputFullName" FieldName="FullName" Required="true">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-item">
+                                <label for="inputDateOfBirth" class="text-label" FieldName="DateOfBirth" DataType="Date">Ngày sinh</label>
+                                <input type="date" class="field-input" placeholder="" id="inputDateOfBirth">
+                            </div>
+                            <div class="form-item">
+                                <label for="inputGeneder" class="text-label">Giới tính</label>
+                                <div class="dropdown" id="inputGender">
+                                    <div class="dropdown__btn">
+                                        <div class="dropdown__btn-left">
+                                            <div class="dropdown__content">
+                                                <span class="dropdown__text"></span>
                                             </div>
-                                            <div class="dropdown__icon-arrow">
-                                                <i class="fas fa-chevron-down fa-xs"></i>
+                                            <div class="dropdown__icon-unselect">
+                                                <i class="fas fa-times fa-xs"></i>
                                             </div>
                                         </div>
-                                        <div class="dropdown__list">
-                                            <div class="dropdown__list-item">
-                                                <i class="fas fa-check fa-xs dropdown__item-icon"></i>
-                                                <span class="dropdown__item-name">Nam</span>
-                                            </div>
-                                            <div class="dropdown__list-item">
-                                                <i class="fas fa-check fa-xs dropdown__item-icon"></i>
-                                                <span class="dropdown__item-name">Nữ</span>
-                                            </div>
-                                            <div class="dropdown__list-item">
-                                                <i class="fas fa-check fa-xs dropdown__item-icon"></i>
-                                                <span class="dropdown__item-name">Khác</span>
-                                            </div>
+                                        <div class="dropdown__icon-arrow">
+                                            <i class="fas fa-chevron-down fa-xs"></i>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-item">
-                                    <label for="inputIdentityNumber" class="text-label">Số CMTND/Căn cước (<span style="color: red;">*</span>)</label>
-                                    <input type="text" class="field-input" placeholder="" id="inputIdentityNumber">
-                                </div>
-                                <div class="form-item">
-                                    <label for="IdentityDate" class="text-label">Ngày cấp</label>
-                                    <input type="date" class="field-input" placeholder="" id="IdentityDate">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-item">
-                                    <label for="inputIdentityPlace" class="text-label">Nơi cấp</label>
-                                    <input type="text" class="field-input" placeholder="" id="inputIdentityPlace">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-item">
-                                    <label for="inputEmail" class="text-label">Email (<span style="color: red;">*</span>)</label>
-                                    <input type="email" class="field-input" placeholder="" id="inputEmail">
-                                </div>
-                                <div class="form-item">
-                                    <label for="inputPhoneNumer" class="text-label">Số điện thoại (<span style="color: red;">*</span>)</label>
-                                    <input type="text" class="field-input" placeholder="" id="inputPhoneNumer">
+                                    <div class="dropdown__list">
+                                        <div class="dropdown__list-item">
+                                            <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                            <span class="dropdown__item-name">Nam</span>
+                                        </div>
+                                        <div class="dropdown__list-item">
+                                            <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                            <span class="dropdown__item-name">Nữ</span>
+                                        </div>
+                                        <div class="dropdown__list-item">
+                                            <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                            <span class="dropdown__item-name">Khác</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form__group">
-                            <span class="form__group-title text-uppercase">B. Thông tin công việc</span>
-                            <div class="form-row">
-                                <div class="form-item">
-                                    <label for="inputPosition" class="text-label">Vị trí</label>
-                                    <div class="dropdown" id="inputPosition">
-                                        <div class="dropdown__btn">
-                                            <div class="dropdown__btn-left">
-                                                <div class="dropdown__content">
-                                                    <span class="dropdown__text"></span>
-                                                </div>
-                                                <div class="dropdown__icon-unselect">
-                                                    <i class="fas fa-times fa-xs"></i>
-                                                </div>
+                        <div class="form-row">
+                            <div class="form-item">
+                                <label for="inputIdentityNumber" class="text-label">Số CMTND/Căn cước (<span style="color: red;">*</span>)</label>
+                                <input type="text" class="field-input" placeholder="" id="inputIdentityNumber" FieldName="IdentityNumber" Required="true">
+                            </div>
+                            <div class="form-item">
+                                <label for="IdentityDate" class="text-label">Ngày cấp</label>
+                                <input type="date" class="field-input" placeholder="" id="IdentityDate">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-item">
+                                <label for="inputIdentityPlace" class="text-label">Nơi cấp</label>
+                                <input type="text" class="field-input" placeholder="" id="inputIdentityPlace">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-item">
+                                <label for="inputEmail" class="text-label">Email</label>
+                                <input type="email" class="field-input" placeholder="" id="inputEmail" FieldName="Email" DataType="Email">
+                            </div>
+                            <div class="form-item">
+                                <label for="inputPhoneNumer" class="text-label">Số điện thoại</label>
+                                <input type="text" class="field-input" placeholder="" id="inputPhoneNumer" FieldName="PhoneNumber">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <span class="form__group-title text-uppercase">B. Thông tin công việc</span>
+                        <div class="form-row">
+                            <div class="form-item">
+                                <label for="inputPosition" class="text-label">Vị trí</label>
+                                <div class="dropdown" id="inputPosition">
+                                    <div class="dropdown__btn">
+                                        <div class="dropdown__btn-left">
+                                            <div class="dropdown__content">
+                                                <span class="dropdown__text"></span>
                                             </div>
-                                            <div class="dropdown__icon-arrow">
-                                                <i class="fas fa-chevron-down fa-xs"></i>
+                                            <div class="dropdown__icon-unselect">
+                                                <i class="fas fa-times fa-xs"></i>
                                             </div>
                                         </div>
-                                        <div class="dropdown__list">
-                                            <div class="dropdown__list-item">
-                                                <i class="fas fa-check fa-xs dropdown__item-icon"></i>
-                                                <span class="dropdown__item-name">Giám đốc</span>
-                                            </div>
-                                            <div class="dropdown__list-item">
-                                                <i class="fas fa-check fa-xs dropdown__item-icon"></i>
-                                                <span class="dropdown__item-name">Kế toán</span>
-                                            </div>
-                                            <div class="dropdown__list-item">
-                                                <i class="fas fa-check fa-xs dropdown__item-icon"></i>
-                                                <span class="dropdown__item-name">HR</span>
-                                            </div>
+                                        <div class="dropdown__icon-arrow">
+                                            <i class="fas fa-chevron-down fa-xs"></i>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-item">
-                                    <label for="inputDepartment" class="text-label">Phòng ban</label>
-                                    <div class="dropdown" id="inputDepartment">
-                                        <div class="dropdown__btn">
-                                            <div class="dropdown__btn-left">
-                                                <div class="dropdown__content">
-                                                    <span class="dropdown__text"></span>
-                                                </div>
-                                                <div class="dropdown__icon-unselect">
-                                                    <i class="fas fa-times fa-xs"></i>
-                                                </div>
-                                            </div>
-                                            <div class="dropdown__icon-arrow">
-                                                <i class="fas fa-chevron-down fa-xs"></i>
-                                            </div>
+                                    <div class="dropdown__list">
+                                        <div class="dropdown__list-item">
+                                            <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                            <span class="dropdown__item-name">Giám đốc</span>
                                         </div>
-                                        <div class="dropdown__list">
-                                            <div class="dropdown__list-item">
-                                                <i class="fas fa-check fa-xs dropdown__item-icon"></i>
-                                                <span class="dropdown__item-name">Phòng nhân sự</span>
-                                            </div>
-                                            <div class="dropdown__list-item">
-                                                <i class="fas fa-check fa-xs dropdown__item-icon"></i>
-                                                <span class="dropdown__item-name">Phòng kỹ thuật</span>
-                                            </div>
-                                            <div class="dropdown__list-item">
-                                                <i class="fas fa-check fa-xs dropdown__item-icon"></i>
-                                                <span class="dropdown__item-name">Phòng kế toán</span>
-                                            </div>
+                                        <div class="dropdown__list-item">
+                                            <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                            <span class="dropdown__item-name">Kế toán</span>
+                                        </div>
+                                        <div class="dropdown__list-item">
+                                            <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                            <span class="dropdown__item-name">HR</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-row">
-                                <div class="form-item">
-                                    <label for="inputTaxCode" class="text-label">Mã số thuế cá nhân</label>
-                                    <input type="text" class="field-input" placeholder="" id="inputTaxCode">
-                                </div>
-                                <div class="form-item">
-                                    <label for="inputSalary" class="text-label">Mức lương cơ bản</label>
-                                    <input type="text" class="field-input" placeholder="" id="inputSalary">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-item">
-                                    <label for="inputJoinDate" class="text-label">Ngày gia nhập công ty</label>
-                                    <input type="date" class="field-input" placeholder="" id="inputJoinDate">
-                                </div>
-                                <div class="form-item">
-                                    <label for="inputWorkStatus" class="text-label">Tình trạng công việc</label>
-                                    <div class="dropdown" id="inputWorkStatus">
-                                        <div class="dropdown__btn">
-                                            <div class="dropdown__btn-left">
-                                                <div class="dropdown__content">
-                                                    <span class="dropdown__text"></span>
-                                                </div>
-                                                <div class="dropdown__icon-unselect">
-                                                    <i class="fas fa-times fa-xs"></i>
-                                                </div>
+                            <div class="form-item">
+                                <label for="inputDepartment" class="text-label">Phòng ban</label>
+                                <div class="dropdown" id="inputDepartment">
+                                    <div class="dropdown__btn">
+                                        <div class="dropdown__btn-left">
+                                            <div class="dropdown__content">
+                                                <span class="dropdown__text"></span>
                                             </div>
-                                            <div class="dropdown__icon-arrow">
-                                                <i class="fas fa-chevron-down fa-xs"></i>
+                                            <div class="dropdown__icon-unselect">
+                                                <i class="fas fa-times fa-xs"></i>
                                             </div>
                                         </div>
-                                        <div class="dropdown__list">
-                                            <div class="dropdown__list-item">
-                                                <i class="fas fa-check fa-xs dropdown__item-icon"></i>
-                                                <span class="dropdown__item-name">Đang làm việc</span>
+                                        <div class="dropdown__icon-arrow">
+                                            <i class="fas fa-chevron-down fa-xs"></i>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown__list">
+                                        <div class="dropdown__list-item">
+                                            <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                            <span class="dropdown__item-name">Phòng nhân sự</span>
+                                        </div>
+                                        <div class="dropdown__list-item">
+                                            <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                            <span class="dropdown__item-name">Phòng kỹ thuật</span>
+                                        </div>
+                                        <div class="dropdown__list-item">
+                                            <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                            <span class="dropdown__item-name">Phòng kế toán</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-item">
+                                <label for="inputTaxCode" class="text-label">Mã số thuế cá nhân</label>
+                                <input type="text" class="field-input" placeholder="" id="inputTaxCode">
+                            </div>
+                            <div class="form-item">
+                                <label for="inputSalary" class="text-label">Mức lương cơ bản</label>
+                                <input type="text" class="field-input" placeholder="" id="inputSalary" FieldName="Salary" DataType="Number">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-item">
+                                <label for="inputJoinDate" class="text-label">Ngày gia nhập công ty</label>
+                                <input type="date" class="field-input" placeholder="" id="inputJoinDate">
+                            </div>
+                            <div class="form-item">
+                                <label for="inputWorkStatus" class="text-label">Tình trạng công việc</label>
+                                <div class="dropdown" id="inputWorkStatus">
+                                    <div class="dropdown__btn">
+                                        <div class="dropdown__btn-left">
+                                            <div class="dropdown__content">
+                                                <span class="dropdown__text"></span>
                                             </div>
-                                            <div class="dropdown__list-item">
-                                                <i class="fas fa-check fa-xs dropdown__item-icon"></i>
-                                                <span class="dropdown__item-name">Đang thử việc</span>
+                                            <div class="dropdown__icon-unselect">
+                                                <i class="fas fa-times fa-xs"></i>
                                             </div>
-                                            <div class="dropdown__list-item">
-                                                <i class="fas fa-check fa-xs dropdown__item-icon"></i>
-                                                <span class="dropdown__item-name">Đã nghỉ việc</span>
-                                            </div>
+                                        </div>
+                                        <div class="dropdown__icon-arrow">
+                                            <i class="fas fa-chevron-down fa-xs"></i>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown__list">
+                                        <div class="dropdown__list-item">
+                                            <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                            <span class="dropdown__item-name">Đang làm việc</span>
+                                        </div>
+                                        <div class="dropdown__list-item">
+                                            <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                            <span class="dropdown__item-name">Đang thử việc</span>
+                                        </div>
+                                        <div class="dropdown__list-item">
+                                            <i class="fas fa-check fa-xs dropdown__item-icon"></i>
+                                            <span class="dropdown__item-name">Đã nghỉ việc</span>
                                         </div>
                                     </div>
                                 </div>
@@ -419,14 +417,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="form__footer">
-                    <div class="btn btn-default form__btn">Hủy</div>
-                    <div class="btn btn-primary btn-icon form__btn">
-                        <i class="far fa-save btn__icon-save"></i>
-                        <span class="btn__name">Lưu</span>
-                    </div>
+            </div>
+            <div class="form__footer">
+                <div class="btn btn-default form__btn" FormBtn="Cancel">Hủy</div>
+                <div class="btn btn-primary btn-icon form__btn" FormBtn="Save">
+                    <i class="far fa-save btn__icon-save"></i>
+                    <span class="btn__name">Lưu</span>
                 </div>
-            </form>
+            </div>
+        </form>
+        <div class="overlay d-none">
+        </div>
+        <div class="loader">
+            <div class="loader__icon"></div>
         </div>
     </div>
 
@@ -435,6 +438,7 @@
         <script src="../Asset/font/fontawesome-5.15.1/js/all.min.js"></script>
         <!-- JQuery -->
         <script src="../Js/Lib/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
     <!-- Chung -->
     <script src="../Js/Common/CommonEvt.js"></script>
     <script src="../Js/Common/Nav.js"></script>
@@ -444,8 +448,10 @@
     <script src="../Js/Common/Resource.js"></script>
     <script src="../Js/Common/CommonFn.js"></script>
     <script src="../Js/Base/BasePaging.js"></script>
+    <script src="../Js/Base/BaseForm.js"></script>
     <script src="../Js/Base/BaseGrid.js"></script>
     <!-- Riêng -->
-    <script src="../Js/Views/Employee.js"></script>
+    <script src="../Js/Views/Employee/EmployeeFormDetail.js"></script>
+    <script src="../Js/Views/Employee/Employee.js"></script>
 </body>
 </html>
